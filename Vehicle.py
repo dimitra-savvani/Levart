@@ -8,24 +8,37 @@ class Vehicle:
     for i, j in enumerate(vehicleType):
         print(i, j)
         
-        ##a = input ("Τύπος αυτοκινήτου:")
-        ##print vehicleType(a).name
-        
+    a = int(input ("Τύπος αυτοκινήτου: "))
+    print(vehicleType[a])
+    print()
+    
     for i, j in enumerate(vehicleBrand):
         print(i, j)
-        ##b = input ("Μάρκα αυτοκινήτου:")
+        
+    b = int(input ("Μάρκα αυτοκινήτου: "))
+    print(vehicleBrand[b])
+    print()
         
     for i, j in enumerate(transmissionType):
         print(i, j)
-        ##c = input ("Σασμάν:")
+        
+    c = int(input ("Σασμάν: "))
+    print(transmissionType[c])
+    print()
         
     for i, j in enumerate(fuelType):
         print(i, j)
-        ##d = input ("Καύσιμο:")
+        
+    d = int(input ("Καύσιμο: "))
+    print(fuelType[d])
+    print()
         
     for i, j in enumerate(driveTrain):
         print(i, j)
-        ##e = input ("Κίνηση:")
+    
+    e = int(input ("Κίνηση: "))
+    print(driveTrain[e])
+    print()
         
    ##def FormFill():
       
