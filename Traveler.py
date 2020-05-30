@@ -1,5 +1,4 @@
 class Traveler:
-    import glob
     import sys
     # import cv2
     def __init__(self,name,surname,username,password,birthdate,telephone,email):
@@ -12,7 +11,10 @@ class Traveler:
         self.email=email
             # profilePicture = cv2.imread('mickeyspicture.png')
             #enableTraveling = False
-            #travelBuddies = ['Donald Duck', 'Goofy']    
+            #travelBuddies = ['Donald Duck', 'Goofy']    l.EditInfo()
+
+            
+            
     def DisplayInfo(*args):
         i=1
         a=True
@@ -42,7 +44,7 @@ class Traveler:
     def EditInfo(self):
             import datetime
             T=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com")
-            T.DisplayInfo()
+            T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email)
             j=True
             while j:
                 print("Διαλέξτε το στοιχείο που επιθυμείτε να επεξεργαστείτε διαλέγοντας τον αντίστοιχο αριθμό. Για έξοδο από την επεξεργασία δεδομένων πατήστε 0.")
@@ -153,21 +155,36 @@ class Traveler:
                         break
                 else:
                     print("Παρακαλώ πληκτολογήστε έναν αριθμό σύμφωνα με τις οδηγίες.")
-                    j=True   
-xrhsths1=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com")                
-xrhsths1.EnterPassword()
-    #DisplayInfo(name,surname,username,password,birthdate,telephone,email)
-xrhsths1.EditInfo()
+                    j=True    
+    
+    def DeactivateAccount(self):
+         print("Ο λογαριασμός σας έχει απενεργοποιήθει προσωρινά. Για να ανακτήσετε τον λογαριασμό σας κάντε σύνδεση με τους όνομα χρήση σας και των κωδικό πρόσβασης σας.")
+         
+    def DeleteAccount(self):
+         self.name = None
+         self.surname = None 
+         self.username = None 
+         self.password = None 
+         self.birthdate = None 
+         self.telephone = None 
+         self.email = None 
+         print("Ο λογαριασμός διεγράφή οριστικά.")
+         
+    
+xrhsths1=Traveler("Mickey","Mouse","m","1","18/11/1928","6969696969","mickeymouse@upatras.com")             
+xrhsths1.LogIn()
     
     # def SelectPendingTravels():
     # def PasswordVerification():
     
     
 
-    # def Delete Account():
-
-    # def DeactivateAccount():
-
+    
+    # 
     # def ReasonSelection():
 
     # def PostReview():
+      
+       
+    
+
