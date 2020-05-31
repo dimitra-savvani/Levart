@@ -1,4 +1,4 @@
-from AggelosGit import Traveler
+from Traveler import Traveler
 class Passenger(Traveler):
     import glob
     import sys
