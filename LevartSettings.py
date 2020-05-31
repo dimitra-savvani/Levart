@@ -25,7 +25,7 @@ class LevartSettings:
          P.allowLocationCapture = True
          P.allowSendingMessage = True
          
-    def LanguageSettings(self):# with L being an object of class Levart
+    def LanguageSettings(self):
         print('Διαλέξτε τη γλώσσα της επιλογής σας:')
         Languages = ['Greek', 'English', 'German', 'French', 'Russian','Έξοδος απο ρυθμίσεις γλώσσας']
         for i, j in enumerate(Languages):
