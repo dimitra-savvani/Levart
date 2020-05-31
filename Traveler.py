@@ -1,7 +1,7 @@
 class Traveler:
     import sys
     # import cv2
-    def __init__(self,name,surname,username,password,birthdate,telephone,email):
+    def __init__(self,name,surname,username,password,birthdate,telephone,email): # αντικαθήστα την βάση δεδομένων και μας βοήθα στο να δημιουργήσουμε default χρήστη και να επεξεργαζόμαστε τις μεταβλητές του
         self.name=name
         self.surname=surname
         self.username=username
@@ -11,69 +11,66 @@ class Traveler:
         self.email=email
             # profilePicture = cv2.imread('mickeyspicture.png')
             #enableTraveling = False
-            #travelBuddies = ['Donald Duck', 'Goofy']    l.EditInfo()
-
-            
-            
-    def DisplayInfo(*args):
+            #travelBuddies = ['Donald Duck', 'Goofy']    l.EditInfo()     
+    def DisplayInfo(*args): # μέθοδος που δέχεται αόριστο αριθμό από arguments τα αριθμοί και τα κάνει Print
         i=1
         a=True
         for a in args[1:]:
             print(i,a)
             i+=1
         return args  
-    def EnterPassword(self):
-        from sys import exit
+    def VerifyPassword(self):#μέθοδος που επαλυθέυει τον κωδικό πρόσβασης και θα καλείτε πρίν την επεξεργασία του λογαριασμού
+        from sys import exit #χρειαζόμαστε την exit ώστε να υπάρχει περιορισμένος αριθμός προσπαθείων
         i = 1
-        while i <= 3:            
-            enteredPassword = input("Παρακαλώ πληκτρολογήστε τον κωδικό χρήστη σας:")
-            if enteredPassword == ("")or enteredPassword==(" ") or enteredPassword==("  ")or enteredPassword==("   ")or enteredPassword==("   ")or enteredPassword==("    "):
+        while i <= 3:            # while για να έχει 3 προσπάθεις ο χρήστης
+            enteredPassword = input("Παρακαλώ πληκτρολογήστε τον κωδικό χρήστη σας:") #
+            if enteredPassword == (""): #διασφαλίζουμε ότι ο χρήστης έχει πληκτρολογήσει κάτι και δεν το προσμετράμε σαν προσπάθεια
                 print("Δεν πληκτρολογίσατε κάτι. Παρακαλώ προσπαθήστε ξανά:")
             else:
-                if (self.password == enteredPassword):
+                if (self.password == enteredPassword): #επαληθεύομυε αν ο κωδικος που προσέθεσε είναι αυτός που είναι αποθηκευμένος για τον χρήστη και επιτρέπει την πρόσβαση στις ρυθμίσεις
                     print("Καλωσήλθατε")
                     break  
                 else:
-                    if i<=2:
+                    if i<=2: # δινουμε στον χρήστη αλλες 2 προσπάθειες να πληκτρολογήσει τον κωδικό του
                         print("Λάθος κωδικός πρόσβασης. Έχετε", 3 - i, "προσπάθειες ακόμα.")
-                    elif i==3:
+                    elif i==3: #εαν δώσει 3 φορες λανθασμένο κωδικο θα παρέχεται link ανάκτησης
                         print ("Πληκτρολόγησατε λάθος κωδικό 3 φορές. Έαν έχετε ξεχάσει τον κωδικό σας κάντε ανάκτηση πατώντας εδώ.")
                         exit(0)
                 i += 1
 
     def EditInfo(self):
-            import datetime
-            T=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com")
-            T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email)
-            j=True
-            while j:
+            import datetime #χρειαζομαστε την datetime για την ημερομηνια γέννησης
+            T=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com") #δημιουργουμε αντικείμενο με deault τιμες
+            T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email) # εμφανιζουμε στον χρήστη τα δεδομενα ως εχουν
+            j=True 
+            while j: #δημιουργουμε while για να επεξεργαζετε τα δεδομένα του όσες φορες επιθυμει ο χρήστης
                 print("Διαλέξτε το στοιχείο που επιθυμείτε να επεξεργαστείτε διαλέγοντας τον αντίστοιχο αριθμό. Για έξοδο από την επεξεργασία δεδομένων πατήστε 0.")
-                a=input()
-                if a=="1" or a=="2" or a=="3" or a=="4" or a=="5" or a=="6" or a=="7" or a=="0":
+                a=input() #επιλεγει τι θελει να επεξεργαστη
+                if a=="1" or a=="2" or a=="3" or a=="4" or a=="5" or a=="6" or a=="7" or a=="0": 
                     if a=="1":
                         k=True
-                        while k:
-                            self.name=input("Πληκτρολογείστε το νέο σας όνομa:")
+                        while k: # δημιουργουμε while μεχρι να δωσει αποδεκτο ονομα
+                            self.name=input("Πληκτρολογείστε το νέο σας όνομa:") #ζηταμε το νεο ονομα
                             for i in self.name:
-                                if not self.name.isalpha():
+                                if not self.name.isalpha(): #αν δεν δωσει αποδεκτο ονομα πρεπει να ξαναδωσει ονομα
                                     print("Επιτρέπονται μόνο γράμματα στο όνομα σας." )
                                     break
-                                else:
+                                else: #αν δωσει σωστο ονομα προχωραμε
                                     print("Τα νέα σας στοιχεία είναι:")
-                                    T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email)
+                                    T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email) # εμφανιζουμε στον χρήστη τα νεα δεδομενα 
                                     k=False
                                     break
                     elif a=="2":
                         k=True
-                        while k:
-                            self.surname=input("Πληκτρολογείστε το νέο σας επίθετο:")
+                        while k: # δημιουργουμε while μεχρι να δωσει αποδεκτο επιθετο
+                            self.surname=input("Πληκτρολογείστε το νέο σας επίθετο:")#ζηταμε το νεο επιθετο
                             for i in self.surname:
-                                if not self.surname.isalpha():
+                                if not self.surname.isalpha(): #αν δεν δωσει αποδεκτο επιθετο πρεπει να ξαναδωσει επιθετο
                                     print("Επιτρέπονται μόνο γράμματα στο όνομα σας.")
                                     break
                                 else:
-                                    print("Τα νέα σας στοιχεία είναι:")
-                                    T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email)
+                                    print("Τα νέα σας στοιχεία είναι:")#αν δωσει σωστο επιθετο προχωραμε
+                                    T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email) # εμφανιζουμε στον χρήστη τα νεα δεδομενα 
                                     k=False
                                     break
                     elif a=="3":
@@ -106,10 +103,10 @@ class Traveler:
                         k=True
                         while k:
                             try:
-                                self.birhtdate=input("Πληκτρολογείστε τα νέa σας γενέθλια στην μορφή dd/mm/yyyy format: ")
-                                day, month, year = list(map(int,self.birhtdate.split("/")))
-                                birthdate = datetime.date(year, month, day)
-                                if year>1900 and year<2020:
+                                self.birhtdate=input("Πληκτρολογείστε τα νέa σας γενέθλια στην μορφή dd/mm/yyyy format: ") 
+                                day, month, year = list(map(int,self.birhtdate.split("/"))) #ελεγχουμε αν ο χρηστης εχει δωσει τα γενεθλια του σε σωστη μορφη
+                                birthdate = datetime.date(year, month, day) #ελεγχουμε αν εχει δωσει σωστες τιμες
+                                if year>1900 and year<2020: #βαζουμε περιορισμο στις χρονιες γεννησης
                                     print("Τα νέα σας στοιχεία είναι:")
                                     T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email)
                                     k=False
@@ -125,7 +122,7 @@ class Traveler:
                             for i in self.telephone:
                                 try:
                                     int(self.telephone)
-                                    if len(self.telephone)!=10:
+                                    if len(self.telephone)!=10: #ελεγχουμε αν ο αριθμος τηλεφωνο είναι 10 ψηφιων
                                         print("Ο αριθμός τηλεφώνου σας δεν μπορεί να είναι μικρότερος ή μεγαλύτερος από δέκα ψηφία. Παρακαλώ προσπαθήστε ξανά.")
                                         break
                                     else:
@@ -158,9 +155,10 @@ class Traveler:
                     j=True    
     
     def DeactivateAccount(self):
-         print("Ο λογαριασμός σας έχει απενεργοποιήθει προσωρινά. Για να ανακτήσετε τον λογαριασμό σας κάντε σύνδεση με τους όνομα χρήση σας και των κωδικό πρόσβασης σας.")
-         
-    def DeleteAccount(self):
+         d=Traveler("Mickey","Mouse","m","1","18/11/1928","6969696969","mickeymouse@upatras.com")
+         d.ReasonSelection()
+         print("Ο λογαριασμός σας έχει απενεργοποιήθει προσωρινά. Για να ανακτήσετε τον λογαριασμό σας κάντε σύνδεση με τους όνομα χρήση σας και των κωδικό πρόσβασης σας.")        
+    def DeleteAccount(self): #δημιουργουμε μεθοδο που διαγραφει τα στοιχεια του χρήστη
          self.name = None
          self.surname = None 
          self.username = None 
@@ -169,22 +167,29 @@ class Traveler:
          self.telephone = None 
          self.email = None 
          print("Ο λογαριασμός διεγράφή οριστικά.")
-         
+    def ReasonSelection(self): #μεθοδος που ζηταει τους λογους απενεργοποιησεις απο τον χρήστη
+           k=True
+           j=0
+           k=1
+           a=["Χρειάζομαι ένα διάλειμμα.","Δεν ξέρω από που να αρχίσω.","Δεν ενδιαφέρομαι για ταξίδια πλέον.", "Ανησυχώ για το απόρρητό μου.","Δεν μπορώ να βρω Travel Buddies.","Δημιούργησα άλλο λογαριασμό.","Άλλο."]
+           
+           for i in a[0:7]:
+               print(k, a[j] )
+               j+=1
+               k+=1
+           logos=input("Γιατί θέλετε να απενεργοποιήσετε τον λογαριασμό σας; Επιλέξτε τον αντίστοιχο αριθμό: ")   
+           while k:
+               if logos == "1" or logos == "2" or logos == "3" or logos == "4" or logos == "5" or logos == "6" :
+                   print("Ελπίζουμε να σας ξαναδούμε σύντομα.")
+                   k=False
+               elif logos=="7":
+                   allo=input("Παρακαλώ δώστε μια μικρή περιγραφ΄η του λόγου σας: ")
+                   print(allo)
+                   k=False
+               else:
+                   print("Παρακαλώ διαλέξτε σωστά σύμφωνα με τις οδηγιές")         
     
-xrhsths1=Traveler("Mickey","Mouse","m","1","18/11/1928","6969696969","mickeymouse@upatras.com")             
-xrhsths1.LogIn()
-    
-    # def SelectPendingTravels():
-    # def PasswordVerification():
-    
-    
-
-    
-    # 
-    # def ReasonSelection():
-
-    # def PostReview():
-      
+xrhsths1=Traveler("Mickey","Mouse","m","1","18/11/1928","6969696969","mickeymouse@upatras.com")
        
     
 
