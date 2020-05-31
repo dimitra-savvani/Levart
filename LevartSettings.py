@@ -1,7 +1,8 @@
 import Levart
-import PanicButton
+#import PanicButton
 
 class LevartSettings:
+    
     
      
     ''' Needed procedure to verify user'''
@@ -24,8 +25,9 @@ class LevartSettings:
          P.allowLocationCapture = True
          P.allowSendingMessage = True
          
-    def LangugeSettings(L):# with L being an object of class Levart
-        Languages = ['Greek', 'English', 'German', 'French', 'Russian']
+    def LanguageSettings(self):# with L being an object of class Levart
+        print('Διαλέξτε τη γλώσσα της επιλογής σας:')
+        Languages = ['Greek', 'English', 'German', 'French', 'Russian','Έξοδος απο ρυθμίσεις γλώσσας']
         for i, j in enumerate(Languages):
             print(i, j)
         while True:
@@ -33,11 +35,14 @@ class LevartSettings:
                 langIndex = int(input ("Διάλεξε Γλώσσα: "))
                 while langIndex > i :
                     langIndex = int(input ("Το νούμερο που διάλεξες δεν αντιστοιχεί σε διαθέσιμη γλώσσα, διάλεξε ξανά: "))
-                print('Η γλώσσα τέθηκε σε',Languages[langIndex])
+                if langIndex == i:
+                    print('Έπιλέξατε έξοδο απο τις ρυθμίσεις γλώσσας')
+                else:
+                    print('Η γλώσσα τέθηκε σε',Languages[langIndex])
                 break
             except ValueError:
-                print("Αυτό το πεδίο δέχετε μόνο αριθμούς")
-        L.language = Languages[langIndex]
+                print("Αυτό το πεδίο δέχετε μόνο αριθμούς.")
+        language = Languages[langIndex]
         
     
 
@@ -46,4 +51,8 @@ class LevartSettings:
         
     def SecuritySettings(T):# with T being an object of class Traveler
         privateProfile = True
+        
+        
+        
+    
 
