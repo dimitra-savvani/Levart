@@ -19,7 +19,7 @@ class LevartSettings:
     
     
     def PanicButtonSettings(P):# with P being an object of class PanicButton
-         P.contactsList = [6983775649, 6947789379]
+         P.emergencyContacts = [6983775649, 6947789379]
          P.enablePanicButton = True
          P.allowePictureCapture = True
          P.allowLocationCapture = True
