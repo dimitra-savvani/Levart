@@ -1,9 +1,10 @@
-class Passenger():
+from AggelosGit import Traveler
+class Passenger(Traveler):
     import glob
     import sys
     
     
-    validinfo = False
+    #validinfo = False
     
     startpoint = "Κορίνθου 17"
     
@@ -11,41 +12,46 @@ class Passenger():
     
     date = '12/12/20'
     
-    luggages = ["Σακίδιο πλάτης" , "Μικ΄ρη βαλίτσα" , "Μεσαία βαλίτσα" , "Μεγάλη βαλίτσα" ]
+    luggages = ["Σακίδιο πλάτης" , "Μικ΄ρη βαλίτσα" , "Μεσαία βαλίτσα" , "Μεγάλη βαλίτσα"]
     
     pets = ["Ναι" , "Οχι"]
     
-    def __init__(self,validinfo,startpoint,destination,date,luggages,pets):
-        self.validinfo=validinfo
+    people = ["1" , "2"]
+    
+    def __init__(self,startpoint,destination,date,luggages,pets):
+       
         self.startpoint=startpoint
         self.destination=destination
-        self.date,=date
-        self.bluggages=luggages
+        self.date=date
+        self.luggages=luggages
         self.pets=pets
        
     
     
     #Αυτή η μέθοδος θα δίνει τιμές στα πεδία της φόρμας.
-    def FormFill(startpoint , destination , date , luggages , pets):   
-        from datetime import datetime
+    def FormFill(self):   
+        import datetime
         self.startpoint = "Κορίνθου 17"
         print("Παρακαλώ συμπληρώστε τα στοιχεία της φόρμας")
         
         self.startpoint = input("Διάλεξε το σημείο εκκίνησης:")
         self.destination = input("Επέλεξε προοριμσό:")
-        self.date_object = datetime.strptime('12/12/12', '%m/%d/%y')
-        print(date_object)
+        self.date=input("Πληκτρολογείστε την ημερομηνία έναρξης στην μορφή dd/mm/yyyy format: ")
+        day, month, year = list(map(int,self.date.split("/")))
+        self.date = datetime.date(year, month, day)
         
-        pets = input("Δηλώσε την ύπαρξη κατοικηδίου:" , pets)
+        self.pets = input("Δηλώσε την ύπαρξη κατοικηδίου:" )
         
-        if pets == "Ναι" or pets == "Οχι":
+        if self.pets == "Ναι" or self.pets == "Οχι":
                 pass
         else:
-                pets = input("Δηλώσε την ύπαρξη κατοικηδίου:" , pets)
+                self.pets = input("Δηλώσε την ύπαρξη κατοικηδίου με Ναι η Οχι:")
         
-        for x in luggages:
-            print("Επέλεξε το μέγεθος των αποσκευών" , x)
-            luggages = input()
+       
+            
+        self.luggages = input("Επέλεξε το μέγεθος των αποσκευών")
+        
+            
         
       # Μέθοδος που ζητάει καινούρια δεδομένα.
     def RequestNewInfo():
@@ -63,11 +69,12 @@ class Passenger():
        print("tarvel")
     
    
-    
-    FormFill("δσαδσα" , '"δσαδασ' , 22/12/1996 ,"δσαδσα" , "δσαδσασδα")
+f=Passenger("αθηνα" , "πατρα" , "12/5/20" , "Βαλιτσα" , "Ναι")    
+f.FormFill()
        
    
             
         
+       
        
        
