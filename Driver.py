@@ -4,6 +4,7 @@ class Driver:
   date: date
   time: time
   luggages: str
+  people: str
   pets: bool
   
   def FormFill():
