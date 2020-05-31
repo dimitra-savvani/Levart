@@ -9,16 +9,46 @@ class Traveler:
         self.birthdate=birthdate
         self.telephone=telephone
         self.email=email
-            # profilePicture = cv2.imread('mickeyspicture.png')
-            #enableTraveling = False
-            #travelBuddies = ['Donald Duck', 'Goofy']    l.EditInfo()     
+        # profilePicture = cv2.imread('mickeyspicture.png')
+        #enableTraveling = False
+    def TravelerSettings(self):#μεθοδος που θα καλείτε απο την LevartSettings για την επεξεργασια του λογαριασμου
+        from Levart import LogIn
+        l=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com") #δημιουργουμε αντικείμενο με deault τιμες
+        k=True
+        while k:   # δημιουργουμε while για να μπορει να επιλέξει οσες φορες θελει την EditInfo
+                a=input("Για να επεξεργαστήτε το προφίλ σας πληκτολογήστε το 1, για να απενεργοποιήσετε τον λογαριασμό σας πληκτολογήστε το 2, για να διαγράψετε οριστικά τον λογαριασμό σας πληκτολογήστε το 3. Για έξοδο πληκτολογήστε το 0.")
+                if a=="1":
+                    l.EditInfo()
+                elif a=="2":
+                    l.DeactivateAccount() #Εφοσον κανει απενεργοποιησει μεταφέρεται στην Login για να κανει επαναφορα
+                    l.LogIn()
+                    False
+                    break
+                elif a=="3":
+                    while True: #δημιουργουμε while σε περιπτωση που μετανιωσει την επιλογη διαγραφης
+                        yn=input("Είστε σίγουρος ότι θέλετε να διαγράψετε όριστικά των λογαριασμό σας; Πλήκτρολογήστε y/n:")
+                        if yn=="y":
+                            l.DeleteAccount()#Εφοσον κανει διαγραφη μεταφέρεται στην Login (αρχικη οθονη)
+                            l.LogIn()
+                            False
+                            break
+                        elif yn=="n":
+                          break  
+                        else:
+                            False
+                elif a=="0":
+                    k=False
+                    break
+                else:
+                    print("Δεν επιλέξατε κάτι")
+                    k=True
     def DisplayInfo(*args): # μέθοδος που δέχεται αόριστο αριθμό από arguments τα αριθμοί και τα κάνει Print
         i=1
-        a=True
         for a in args[1:]:
             print(i,a)
             i+=1
         return args  
+    
     def VerifyPassword(self):#μέθοδος που επαλυθέυει τον κωδικό πρόσβασης και θα καλείτε πρίν την επεξεργασία του λογαριασμού
         from sys import exit #χρειαζόμαστε την exit ώστε να υπάρχει περιορισμένος αριθμός προσπαθείων
         i = 1
