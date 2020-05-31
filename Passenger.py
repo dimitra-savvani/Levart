@@ -49,14 +49,8 @@ class Passenger(Traveler):
         
        
             
-        self.luggages = input("Επέλεξε το μέγεθος των αποσκευών")
+        self.luggages = input("Επέλεξε το μέγεθος των αποσκευών: \n Σακίδιο πλάτης , Μικρή βαλίτσα , Μεσαία βαλίτσα , Μεγάλη βαλίτσα:")
         
-            
-        
-      # Μέθοδος που ζητάει καινούρια δεδομένα.
-    def RequestNewInfo():
-        
-         print("You have an error please fill the info")
          
        # Μέθοδος που θα ελέγχει αν οι τύποι δεδομένων που συμπλήρωσε ο χρήστης είναι σωστοί.
     def DataCheck():
@@ -71,6 +65,12 @@ class Passenger(Traveler):
    
 f=Passenger("αθηνα" , "πατρα" , "12/5/20" , "Βαλιτσα" , "Ναι")    
 f.FormFill()
+       
+   
+            
+        
+       
+       
        
    
             
