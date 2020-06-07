@@ -12,8 +12,9 @@ class Traveler:
         # profilePicture = cv2.imread('mickeyspicture.png')
         #enableTraveling = False
     def TravelerSettings(self):#μεθοδος που θα καλείτε απο την LevartSettings για την επεξεργασια του λογαριασμου
-        from Levart import LogIn
-        l=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com") #δημιουργουμε αντικείμενο με deault τιμες
+        
+        l=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com")#δημιουργουμε αντικείμενο με deault τιμες
+        l.VerifyPassword() #κανουμε ελεγχο κωδικου προσβασης πριν μπορέσει να επεξεργαστη τα δεδομένα του
         k=True
         while k:   # δημιουργουμε while για να μπορει να επιλέξει οσες φορες θελει την EditInfo
                 a=input("Για να επεξεργαστήτε το προφίλ σας πληκτολογήστε το 1, για να απενεργοποιήσετε τον λογαριασμό σας πληκτολογήστε το 2, για να διαγράψετε οριστικά τον λογαριασμό σας πληκτολογήστε το 3. Για έξοδο πληκτολογήστε το 0.")
@@ -22,7 +23,7 @@ class Traveler:
                 elif a=="2":
                     l.DeactivateAccount() #Εφοσον κανει απενεργοποιησει μεταφέρεται στην Login για να κανει επαναφορα
                     l.LogIn()
-                    False
+                    k=False
                     break
                 elif a=="3":
                     while True: #δημιουργουμε while σε περιπτωση που μετανιωσει την επιλογη διαγραφης
@@ -31,14 +32,13 @@ class Traveler:
                             l.DeleteAccount()#Εφοσον κανει διαγραφη μεταφέρεται στην Login (αρχικη οθονη)
                             l.LogIn()
                             False
-                            break
                         elif yn=="n":
                           break  
                         else:
                             False
+                            break
                 elif a=="0":
                     k=False
-                    break
                 else:
                     print("Δεν επιλέξατε κάτι")
                     k=True
@@ -53,7 +53,7 @@ class Traveler:
         from sys import exit #χρειαζόμαστε την exit ώστε να υπάρχει περιορισμένος αριθμός προσπαθείων
         i = 1
         while i <= 3:            # while για να έχει 3 προσπάθεις ο χρήστης
-            enteredPassword = input("Παρακαλώ πληκτρολογήστε τον κωδικό χρήστη σας:") #
+            enteredPassword = input("Παρακαλώ πληκτρολογήστε τον κωδικό χρήστη σας:") #κωδικός '1'
             if enteredPassword == (""): #διασφαλίζουμε ότι ο χρήστης έχει πληκτρολογήσει κάτι και δεν το προσμετράμε σαν προσπάθεια
                 print("Δεν πληκτρολογίσατε κάτι. Παρακαλώ προσπαθήστε ξανά:")
             else:
@@ -133,8 +133,8 @@ class Traveler:
                         k=True
                         while k:
                             try:
-                                self.birhtdate=input("Πληκτρολογείστε τα νέa σας γενέθλια στην μορφή dd/mm/yyyy format: ") 
-                                day, month, year = list(map(int,self.birhtdate.split("/"))) #ελεγχουμε αν ο χρηστης εχει δωσει τα γενεθλια του σε σωστη μορφη
+                                self.birthdate=input("Πληκτρολογείστε τα νέa σας γενέθλια στην μορφή dd/mm/yyyy format: ") 
+                                day, month, year = list(map(int,self.birthdate.split("/"))) #ελεγχουμε αν ο χρηστης εχει δωσει τα γενεθλια του σε σωστη μορφη
                                 birthdate = datetime.date(year, month, day) #ελεγχουμε αν εχει δωσει σωστες τιμες
                                 if year>1900 and year<2020: #βαζουμε περιορισμο στις χρονιες γεννησης
                                     print("Τα νέα σας στοιχεία είναι:")
@@ -168,13 +168,13 @@ class Traveler:
                             self.email=input("Πληκτρολογείστε το νέο σας email:")
                             for i in self.email:
                                 if i == ("")or i==(" "):
-                                    print("Το στοιχείο",i,"δεν είναι επιτρεπτό. Δεν επιτρέποτνται κένα στο όνομα χρήστη σας.")
+                                    print("Δεν επιτρέποτνται κένα στο email σας.")
                                     break
                                 else:
                                     print("Τα νέα σας στοιχεία είναι:")
                                     T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email)
                                     k=False
-                                    break
+                                    
                         
                     elif a=="0":
                         print("Τα νέα σας στοιχεία είναι:")
@@ -218,8 +218,8 @@ class Traveler:
                    k=False
                else:
                    print("Παρακαλώ διαλέξτε σωστά σύμφωνα με τις οδηγιές")         
-    
-xrhsths1=Traveler("Mickey","Mouse","m","1","18/11/1928","6969696969","mickeymouse@upatras.com")
-       
-    
+    def TravelDeletation(self):
+        print("Ένα ταξίδι το οποίο συμμετείχατε έχει διαγραφεί. Για να δείτε τις λεπτομέριες πατήστε εδώ.")
+
+
 

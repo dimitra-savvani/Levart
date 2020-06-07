@@ -1,33 +1,27 @@
-from Passenger import Passenger
-class PendingReservations(Passenger):
-    
-    travelList = []
+from Traveler import Traveler
+class PendingReservations():
+    t = []
     review = str
     starReview =  int
-    
-    def __init__(self,afethria,proorismos,hmerominia,wra,atoma,aposkeyes,katoikidia):
-        self.afethria=Passenger.startpoint
-        self.proorismos=Passenger.destination
-        self.hmerominia=Passenger.date
-        self.wra= wra
-        self.atoma= atoma
-        self.aposkeyes=Passenger.luggages
-        self.katoikidia=Passenger.pets
+    count = 0 
+    def __init__(self,afethria,proorismos,hmeromhnia,katoikidia,aposkeyes):
+        self.afethria=afethria
+        self.proorismos=proorismos
+        self.hmeromhnia=hmeromhnia
+        self.katoikidia=katoikidia
+        self.aposkeyes=aposkeyes
     def DisplayForm(*args): # μέθοδος που δέχεται αόριστο αριθμό από arguments τα αριθμοί και τα κάνει Print
         i=1
         for a in args[1:]:
             print(i,a)
             i+=1
-        return args  
-        
+        return args
     def Form(self):
-        c=PendingReservations("patra","athina","5555","4","atoma","4","nai")
-        p=Passenger()
-        c.DisplayForm(self.afethria)
-        Passenger.FormFill()
+        c=PendingReservations("Πάτρα","Αθήνα","12/12/2020","Ναι","Μεγάλη Βαλίτσα") 
+        c.DisplayForm(self.afethria,self.proorismos,self.hmeromhnia,self.katoikidia,self.aposkeyes)
         k=True 
         while k:
-            a=input("Εάν θέλετε να κάνετε ολοκλήρωση ταξιδιού πληκτρολογήστε το 1, για ακύρωση ταξιδιού πληκτρολογήστε το 2, για έξοδο πληκτρολογήστε 0 :")
+            a=input("Εάν θέλετε να κάνετε ολοκλήρωση ταξιδιού πληκτρολογήστε το 1, για ακύρωση ταξιδιού πληκτρολογήστε το 2, για έξοδο πληκτρολογήστε 0 :\n")
             if a=="1":
                 c.ReviewTraveler()
                 c.CompleteReservation()
@@ -41,7 +35,7 @@ class PendingReservations(Passenger):
             else: 
                 print("Διαλέξτε κάτι σύμφωνα με τις οδηγίες.")
     def ReviewTraveler(self):
-        r=PendingReservations(self.afethria,self.proorismos,self.hmerominia,self.wra,self.atoma,self.aposkeyes,self.katoikidia)
+        r=PendingReservations("Πάτρα","Αθήνα","12/12/2020","Ναι","Μεγάλη Βαλίτσα")  
         k=True
         while k:
             a=input("Εάν θέλετε να αξιογήσετε τον χρήστη που πραγματοποιήσατε το ταξίδι πατήστε 1, για ολοκλήρωση χωρίς αξιλόγηση πατήστε 0.")
@@ -77,18 +71,33 @@ class PendingReservations(Passenger):
             except ValueError:
                 print("Επιτρέπονται μόνο αριθμοί στην αξιολόγηση σας.")
    
-    def CompleteReservation():  
-                   
-   #def DeleteReservation():
-        
-   # def InformTraveler():
-   
-
-        
-print(Passenger.startpoint)
-p=PendingReservations("afethria", "proorismos", "hmerominia", "wra", "atoma", "aposkeyes", "katoikidia")
+    def CompleteReservation(self): 
+        c=PendingReservations("Πάτρα","Αθήνα","12/12/2020","Ναι","Μεγάλη Βαλίτσα")
+        c.t.append(self.afethria)
+        c.t.append(self.proorismos)
+        c.t.append(self.hmeromhnia)
+        c.t.append(self.katoikidia)
+        c.t.append(self.aposkeyes)
+        self.afethria=None
+        self.proorismos=None
+        self.hmeromhnia=None
+        self.katoikidia=None
+        self.aposkeyes=None
+        c.count+=1
+    def DeleteReservation(self):
+        c=PendingReservations("Πάτρα","Αθήνα","12/12/2020","Ναι","Μεγάλη Βαλίτσα")
+        self.afethria=None
+        self.proorismos=None
+        self.hmeromhnia=None
+        self.katoikidia=None
+        self.aposkeyes=None
+        c.count=0
+    def InformTraveler(self):
+        t=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com")
+        t.TravelDeletation()
+p=PendingReservations("Πάτρα","Αθήνα","12/12/2020","Ναι","Μεγάλη Βαλίτσα") 
 p.Form()
-#p.ReviewTraveler()
+
   
         
 
