@@ -99,8 +99,5 @@ class Vehicle:
                 print("Λάθος επιλογή! Διάλεξε μεταξύ 0 και 4.")
                 print()
     def Display(self):
-        print(self.tupos,self.marka,self.sasman,self.kausimo,self.kinisi)
+        print("Τύπος αυτοκινήτου: ",self.tupos,"\n","Μάρκα αυτοκινήτου: ",self.marka,"\n","Σασμάν: ",self.sasman,"\n","Καύσιμο: ",self.kausimo,"\n","Κίνηση: ",self.kinisi,"\n")
         
-veh=Vehicle('Unknown','Unknown','Unknown','Unknown','Unknown')
-veh.VehicleForm()
-veh.Display()
