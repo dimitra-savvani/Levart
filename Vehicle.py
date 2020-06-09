@@ -1,5 +1,4 @@
-class Vehicle:    
-    
+class Vehicle:
     def __init__(self,tupos,marka,sasman,kausimo,kinisi):
         self.tupos=tupos
         self.marka=marka
@@ -101,3 +100,5 @@ class Vehicle:
     def Display(self):
         print("Τύπος αυτοκινήτου: ",self.tupos,"\n","Μάρκα αυτοκινήτου: ",self.marka,"\n","Σασμάν: ",self.sasman,"\n","Καύσιμο: ",self.kausimo,"\n","Κίνηση: ",self.kinisi,"\n")
         
+# veh=Vehicle('Unknown','Unknown','Unknown','Unknown','Unknown')
+# veh.VehicleForm()
