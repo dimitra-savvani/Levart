@@ -1,37 +1,40 @@
-
-#import PanicButton
-
 class LevartSettings:
-    
-    
-     
     ''' Needed procedure to verify user'''
-    def Identification(T):# with T being an object of class Traveler
-        changePic = int(input ('Πρόσθεσε νέα φωτογραφία προφίλ \n 1-->ΝΑΙ \n 0-->ΟΧΙ \n Επίλεξε:'))    
+    def Identification():# with T being an object of class Traveler      
+        while True:
+            try:
+                changePic = int(input ('Πρόσθεσε νέα φωτογραφία προφίλ \n 1-->ΝΑΙ \n 0-->ΟΧΙ \n Επίλεξε:')) 
+                if changePic==1:
+                    print('Επιτυχής ταυτοποίηση στοιχείων, μπορείτε πλέον να Ταξιδέψετε μέσω της Levart\n')
+                    False
+                    break
+                elif changePic==0:
+                    print('Επιτυχής ταυτοποίηση στοιχείων, μπορείτε πλέον να Ταξιδέψετε μέσω της Levart\n')
+                    False
+                    break
+                else:
+                    print("Παρακαλώ επιλέξτε σύμφωνα με τις οδηγίες")
+            except ValueError:
+                 print("Παρακαλώ επιλέξτε σύμφωνα με τις οδηγίες")        
         #upload eggrafo
         #elegxos
         #upload fwtografia
         #elgxos
         #sugrisi
-        print('Επιτυχής ταυτοποίηση στοιχείων, μπορείτε πλέον να Ταξιδέψετε μέσω της Levart')
-        T.enableTraveling = True #if true, users are allowed to arrange travels through Levart
-         
-    
-    
+        #T.enableTraveling = True #if true, users are allowed to arrange travels through Levart
     def PanicButtonSettings(P):# with P being an object of class PanicButton
          typedEmergencyContacts = [6983775649, 6947789379]
          typedEnablePanicButton = True
          TypedAllowePictureCapture = True
          TypedAllowLocationCapture = True
          TypedAllowSendingMessage = True
-         
          P.emergencyContacts = typedEmergencyContacts
          P.enablePanicButton = typedEnablePanicButton
          P.allowePictureCapture = TypedAllowePictureCapture
          P.allowLocationCapture = TypedAllowLocationCapture
          P.allowSendingMessage = TypedAllowSendingMessage
          
-    def LanguageSettings(self):
+    def LanguageSettings():
         print('Διαλέξτε τη γλώσσα της επιλογής σας:')
         Languages = ['Greek', 'English', 'German', 'French', 'Russian','Έξοδος απο ρυθμίσεις γλώσσας']
         for i, j in enumerate(Languages):
@@ -52,9 +55,3 @@ class LevartSettings:
         return language
     
 
-    # def GeneralSettings(Τ):# with T being an object of class Traveler
-    #     allowNotification = True
-        
-    # def SecuritySettings(T):# with T being an object of class Traveler
-    #     privateProfile = True
-     
