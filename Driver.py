@@ -1,10 +1,6 @@
-from Traveler import Traveler
-class Driver(Traveler):
+class Driver():
     import glob
     import sys
-    
-    
-    
     def __init__(self,startpoint,destination,date,luggages,pets,people):
        
         self.startpoint=startpoint #Σημείο έναρξης.
@@ -17,12 +13,24 @@ class Driver(Traveler):
    
     #Αυτή η μέθοδος θα δίνει τιμές στα πεδία της φόρμας.
     def FormFill(self):   
+        f=Driver("Aθήνα" , "Πάτρα" , "12/5/20" , "Μεγάλη Βαλίτσα" , "Ναι" , "4" )
         import datetime
         
         print("Παρακαλώ συμπληρώστε τα στοιχεία της φόρμας")
-        
-        self.startpoint = input("Διάλεξε το σημείο εκκίνησης:")
-        self.destination = input("Επέλεξε προοριμσό:")
+        while True:
+            self.startpoint = input("Διάλεξε το σημείο εκκίνησης:")
+            if len(self.startpoint)!=0:
+                False
+                break
+            else:
+                print("Παρακαλώ πληκτρολογήστε κάτι")
+        while True:
+            self.destination = input("Διάλεξε το σημείο προορισμού:")
+            if len(self.destination)!=0 and self.destination!=self.startpoint:
+                False
+                break
+            else:
+                print("Παρακαλώ πληκτρολογήστε κάτι. Προσοχή ο προορισμός δεν μπορεί να ίδιος με την αφετηρία.") 
         while True: #Έλεγχος ορθότητας ημερομηνιών. Δέχεται μόνο μεταγενέστερες ημερομηνίες απο την στιγμή που θα εκτελεστεί.
                             try:
                                 self.date=input("Πληκτρολογείστε την ημερομηνία έναρξης στην μορφή dd/mm/yyyy: ") 
@@ -39,7 +47,7 @@ class Driver(Traveler):
                                 print("Η μορφή ημερομινίας που δώσατε δεν είναι αποδεκτή, παρακαλώ ακολουθήστε τις οδηγιές και προσπαθήστε ξανά.")
         
         while True :  #Έλεγχος ορθότητας εισόδου ύπαρξης κατοικιδίων.
-            self.pets = input("Δηλώστε την ύπαρξη κατοικηδίου με Ναι η Οχι: " )
+            self.pets = input("Δηλώστε την ύπαρξη κατοικηδίου με Ναι ή Οχι: " )
             if self.pets == "Ναι" or self.pets == "Οχι":
                False
                break
@@ -84,8 +92,8 @@ class Driver(Traveler):
                     veh=Vehicle('Unknown','Unknown','Unknown','Unknown','Unknown')
                     veh.VehicleForm()
                     veh.Display()
+                    break
                 elif bla == 0:
-                    print("exit")
                     break
                 else:
                     print("Εάν θέλετε να δηλώσετε όχημα, πληκτρολογήστε 1, αλλιώς 0: \n")
@@ -95,10 +103,10 @@ class Driver(Traveler):
         # Μέθοδος που εκτυπώνει τα αποτελέσματα των εισόδων.
     def PrintInfo(self):
         
-        print("Σημείο εκκίνησης:\n" , self.startpoint ,"\n", "Προορισμός:\n", self.destination ,"\n", "Ημερομηνία:\n" , self.date ,"\n" , "Αποσκευές:\n" , self.luggages, "\n" , "Κατοικίδια:\n", self.pets ,"\n", "Άτομα:\n" , self.people ,"\n")
+        print("Σημείο εκκίνησης:" , self.startpoint ,"\n", "Προορισμός:", self.destination ,"\n", "Ημερομηνία:" , self.date ,"\n" , "Αποσκευές:" , self.luggages, "\n" , "Κατοικίδια:", self.pets ,"\n", "Άτομα:" , self.people ,"\n")
                   
     
    
-f=Driver("αθηνα" , "πατρα" , "12/5/20" , "Βαλιτσα" , "Ναι" , "4" )    
-f.FormFill()
-f.PrintInfo() 
+# f=Driver("αθηνα" , "πατρα" , "12/5/20" , "Βαλιτσα" , "Ναι" , "4" )    
+# f.FormFill()
+# f.PrintInfo() 
