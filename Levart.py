@@ -1,9 +1,8 @@
-from myLevartSettings import LevartSettings
+from LevartSettings import LevartSettings
 
 
 
 class Levart:
-    
     L = LevartSettings()
     language = L.LanguageSettings()
     
@@ -18,15 +17,18 @@ class Levart:
     def ComposeSMS(i):
         
         if i == 0:
-            text = 'I am in danger 0'
+            text = '\n Το όνομα μου είναι ΤΑΔΕ και δέχομαι σεξουαλική παρενόχληση στο ταξίδι που εκτελώ! Παρακάτω παραθέτονται πληροφορίες οι οποίες θα είναι χρήσιμες για την βοήθεια μου !'
+            print(text)
         elif i == 1:   
-            text = 'I am in danger 1'
+            text = '\n Το όνομα μου είναι ΤΑΔΕ και έπεσα θύμα κλοπ΄΄ής στο ταξίδι που εκτελώ! Παρακάτω παρατίθενται πληροφορίες οι οποίες θα είναι χρήσιμες για την βοήθεια μου !'
+            print(text)
         elif i == 2:   
-            text = 'I am in danger 2'
-        else:   
-            text = 'I am in danger 3'
-        return text
-    
-    #def SendMessage(): 
+            text = '\n Το όνομα μου είναι ΤΑΔΕ και ο συνταξηδιώτης μου με εγκατέληψε στο ταξίδι που εκτελώ! Παρακάτω παραθέτονται πληροφορίες οι οποίες θα είναι χρήσιμες για την βοήθεια μου !'
+            print(text)
+            
+        elif i == 3: 
+            text = '\n Το όνομα μου είναι ΤΑΔΕ και ο συνταξηδιώτης μου με παραπλάνησε και πάει σε διαφορετικό προορισμό απο τον προσκαθορισμένο στο ταξίδι που εκτελώ! Παρακάτω παραθέτονται πληροφορίες οι οποίες θα είναι χρήσιμες για την βοήθεια μου !'
+            print(text)
         
-  
+    
+    #def SendMessage():
