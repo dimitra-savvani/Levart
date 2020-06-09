@@ -1,6 +1,8 @@
+from Signing import Signing
 class Traveler:
     import sys
-    # import cv2
+    L = Signing
+    name, surname, username, password, birthdate, telephone, email = L.Register() 
     def __init__(self,name,surname,username,password,birthdate,telephone,email): # αντικαθήστα την βάση δεδομένων και μας βοήθα στο να δημιουργήσουμε default χρήστη και να επεξεργαζόμαστε τις μεταβλητές του
         self.name=name
         self.surname=surname
@@ -11,26 +13,28 @@ class Traveler:
         self.email=email
         # profilePicture = cv2.imread('mickeyspicture.png')
         #enableTraveling = False
-    def TravelerSettings(self):#μεθοδος που θα καλείτε απο την LevartSettings για την επεξεργασια του λογαριασμου
         
-        l=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com")#δημιουργουμε αντικείμενο με deault τιμες
-        l.VerifyPassword() #κανουμε ελεγχο κωδικου προσβασης πριν μπορέσει να επεξεργαστη τα δεδομένα του
+    def TravelerSettings(self):#μεθοδος που θα καλείτε απο την LevartSettings για την επεξεργασια του λογαριασμου
+        l=Traveler#δημιουργουμε αντικείμενο με deault τιμες
+        l.VerifyPassword(l)
+        s=Signing
+        #l.VerifyPassword() #κανουμε ελεγχο κωδικου προσβασης πριν μπορέσει να επεξεργαστη τα δεδομένα του
         k=True
         while k:   # δημιουργουμε while για να μπορει να επιλέξει οσες φορες θελει την EditInfo
                 a=input("Για να επεξεργαστήτε το προφίλ σας πληκτολογήστε το 1, για να απενεργοποιήσετε τον λογαριασμό σας πληκτολογήστε το 2, για να διαγράψετε οριστικά τον λογαριασμό σας πληκτολογήστε το 3. Για έξοδο πληκτολογήστε το 0.")
                 if a=="1":
-                    l.EditInfo()
+                    l.EditInfo(l)
                 elif a=="2":
-                    l.DeactivateAccount() #Εφοσον κανει απενεργοποιησει μεταφέρεται στην Login για να κανει επαναφορα
-                    l.LogIn()
+                    l.DeactivateAccount(l) #Εφοσον κανει απενεργοποιησει μεταφέρεται στην Login για να κανει επαναφορα
+                    s.Login(self.username,self.password)
                     k=False
                     break
                 elif a=="3":
                     while True: #δημιουργουμε while σε περιπτωση που μετανιωσει την επιλογη διαγραφης
                         yn=input("Είστε σίγουρος ότι θέλετε να διαγράψετε όριστικά των λογαριασμό σας; Πλήκτρολογήστε y/n:")
                         if yn=="y":
-                            l.DeleteAccount()#Εφοσον κανει διαγραφη μεταφέρεται στην Login (αρχικη οθονη)
-                            l.LogIn()
+                            l.DeleteAccount(l)#Εφοσον κανει διαγραφη μεταφέρεται στην Login (αρχικη οθονη)
+                            s.Login(self.username,self.password)
                             False
                         elif yn=="n":
                           break  
@@ -70,7 +74,7 @@ class Traveler:
 
     def EditInfo(self):
             import datetime #χρειαζομαστε την datetime για την ημερομηνια γέννησης
-            T=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","6969696969","mickeymouse@upatras.com") #δημιουργουμε αντικείμενο με deault τιμες
+            T=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","2109989500","mickeymouse@upatras.com") #δημιουργουμε αντικείμενο με deault τιμες
             T.DisplayInfo(self.name,self.surname,self.username,self.password,self.birthdate,self.telephone,self.email) # εμφανιζουμε στον χρήστη τα δεδομενα ως εχουν
             j=True 
             while j: #δημιουργουμε while για να επεξεργαζετε τα δεδομένα του όσες φορες επιθυμει ο χρήστης
@@ -185,7 +189,7 @@ class Traveler:
                     j=True    
     
     def DeactivateAccount(self):
-         d=Traveler("Mickey","Mouse","m","1","18/11/1928","6969696969","mickeymouse@upatras.com")
+         d=Traveler("Mickey","Mouse","mickeymouse","1","18/11/1928","2109989500","mickeymouse@upatras.com")
          d.ReasonSelection()
          print("Ο λογαριασμός σας έχει απενεργοποιήθει προσωρινά. Για να ανακτήσετε τον λογαριασμό σας κάντε σύνδεση με τους όνομα χρήση σας και των κωδικό πρόσβασης σας.")        
     def DeleteAccount(self): #δημιουργουμε μεθοδο που διαγραφει τα στοιχεια του χρήστη
@@ -217,9 +221,7 @@ class Traveler:
                    print(allo)
                    k=False
                else:
-                   print("Παρακαλώ διαλέξτε σωστά σύμφωνα με τις οδηγιές")         
+                   print("Παρακαλώ διαλέξτε σωστά σύμφωνα με τις οδηγιές")       
+                   break
     def TravelDeletation(self):
         print("Ένα ταξίδι το οποίο συμμετείχατε έχει διαγραφεί. Για να δείτε τις λεπτομέριες πατήστε εδώ.")
-
-
-
